@@ -13,7 +13,8 @@ follow these steps:
 * Download the `game` folder from this repository.
 * Place the `game` folder in an easy-to-access place (for example, Desktop)  
   On Windows:
-  * [Coming soon]  
+  * [Coming soon]
+  
   On MacOS:
   * Open Terminal
   * Type the following:
