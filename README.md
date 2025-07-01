@@ -22,10 +22,11 @@ follow these steps:
       ```
       cd Desktop
       ```
-      followed by
+      then press `return`, followed by
       ```
       open -n -a love "game"
       ```
+      and press `return` again.
 > [!NOTE]
 > In order for this to work, you must have LÖVE installed. It can be found [here](https://love2d.org/#download).
 
