@@ -11,9 +11,9 @@ This game is built using LÖVE Potion, and thanks to the [nëst](https://github.
 simulated inside of LÖVE. If you're looking to simulate this on your computer,  
 follow these steps:
 * Download the `game` folder from this repository.
-* Place the `game` folder in an easy-to-access place (for example, Desktop)
+* Place the `game` folder in an easy-to-access place (for example, Desktop)  
   On Windows:
-  * [Coming soon]
+  * [Coming soon]  
   On MacOS:
   * Open Terminal
   * Type the following:
@@ -27,4 +27,4 @@ follow these steps:
 > [!NOTE]
 > In order for this to work, you must have LÖVE installed. It can be found [here](https://love2d.org/#download).
 
-Thanks for visiting! :D
+## Thanks for visiting! :D
