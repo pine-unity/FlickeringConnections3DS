@@ -26,7 +26,7 @@ follow these steps:
       ```
       open -n -a love "game"
       ```
-    > [!NOTE]
-    > In order for this to work, you must have LÖVE installed. It can be found [here](https://love2d.org/#download).
+> [!NOTE]
+> In order for this to work, you must have LÖVE installed. It can be found [here](https://love2d.org/#download).
 
 ## Thanks for visiting! :D
