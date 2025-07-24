@@ -15,6 +15,15 @@ function love.load()
 
     gameloadbool = 0
 
+    player = {}
+    player.customization_mode = 0
+    player.x = 0
+    player.y = 0
+    player.dy = 1
+    player.ay = -5
+    player.vx = 1
+    player.vy = 0
+
 
 end
 
@@ -28,10 +37,10 @@ function love.draw(screen)
 
         if gameloadbool == 0 then
 
-            love.graphics.setColor(1, 1, 1);
+            love.graphics.setColor(1, 1, 1)
             love.graphics.rectangle("fill", 0, 0, width, height)
 
-            love.graphics.setColor(0.6, 0.4, 1);
+            love.graphics.setColor(0.6, 0.4, 1)
 
             playbutton.x = width / 4
             playbutton.y = (height / 4) - (height / 12)
@@ -48,7 +57,7 @@ function love.draw(screen)
             love.graphics.rectangle("fill", width / 4, (3 * height / 4) - (height / 12), width / 2, height / 6)
             
         else
-            love.graphics.setColor(0.4, 0.5, 0.8);
+            love.graphics.setColor(0.4, 0.5, 0.8)
             love.graphics.rectangle("fill", 0, 0, width, height)
 
             exitbutton.x = width / 4
@@ -57,7 +66,7 @@ function love.draw(screen)
             exitbutton.height = height / 6
 
             -- exit button
-            love.graphics.setColor(0.7, 0.5, 0.8);
+            love.graphics.setColor(0.7, 0.5, 0.8)
             love.graphics.rectangle("fill", exitbutton.x, exitbutton.y, exitbutton.width, exitbutton.height)
 
         end
@@ -65,19 +74,24 @@ function love.draw(screen)
     else
 
         if gameloadbool == 0 then
-            love.graphics.setColor(0.6, 0.4, 1);
+            love.graphics.setColor(0.6, 0.4, 1)
             love.graphics.rectangle("fill", 0, 0, width, height)
+
+            love.graphics.setColor(1, 1, 1)
+            love.graphics.print("Flickering Connections for 3DS")
         else
-            love.graphics.setColor(0.4, 0.5, 1);
+            love.graphics.setColor(0.4, 0.5, 1)
             love.graphics.rectangle("fill", 0, 0, width, height)
+
+            -- load player
+            player.x = (width / 2) - (width / 12)
+            player.y = height / 2
+            love.graphics.setColor(1, 1, 1)
+            love.graphics.rectangle("fill", player.x, player.y, width / 6, width / 6)
         end
 
     end
 
-end
-
-function love.gamepadpressed(joystick, button)
-    love.event.quit()
 end
 
 function love.touchpressed(id, x, y, dx, dy, pressure)
@@ -94,5 +108,19 @@ function love.touchpressed(id, x, y, dx, dy, pressure)
                 gameloadbool = 0
             end
         end
+    end
+end
+
+
+
+function love.gamepadpressed(joystick, button)
+    if not joystick then
+        return
+    end
+
+    if joystick:isGamepadDown("dpright") then
+        player.x = player.x + player.vx
+    elseif joystick:isGamepadDown("dpleft") then
+        player.x = player.x - player.vx
     end
 end
