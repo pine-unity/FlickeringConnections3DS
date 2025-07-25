@@ -13,7 +13,7 @@ This game is built using LÖVE Potion, and thanks to the [nëst](https://github.
 simulated inside of LÖVE. If you're looking to simulate this on your computer,  
 follow these steps:
 * Download the `game` folder from this repository.
-* Place the `game` folder in an easy-to-access place (for example, Desktop)  
+* Place the `game` folder in an easy-to-access place (for example, `Desktop`)  
   * On Windows:
     * [Coming soon]
   * On MacOS:
@@ -27,6 +27,7 @@ follow these steps:
       open -n -a love "game"
       ```
       and press `return` again.
+    * Alternatively, you may access the game by having the `game` folder, as well as the `love` application, accessible on `Desktop`, and dragging the `game` folder onto the `love` application icon.
 > [!NOTE]
 > In order for this to work, you must have LÖVE installed. It can be found [here](https://love2d.org/#download).
 
