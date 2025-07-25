@@ -4,7 +4,7 @@ In 2024, I created an unfinished demo of a platformer game, Flickering Connectio
 which contains basic platformer mechanics and player customization features. This project is meant  
 to bring that experience to the Nintendo 3DS via LÖVE Potion, a Lua-based tool.
 > [!NOTE]
-> This is still a work in progress project! As of 6/1/2025, this project currently does nothing except show different colors on the top and bottom screen, serving as basic setup for when I start work on the actual conversion of Flickering Connections to a Lua-based 3DS game. More is coming soon!!
+> This is still a work in progress project! As of 7/1/2025, this project currently does nothing except show different colors on the top and bottom screen, serving as basic setup for when I start work on the actual conversion of Flickering Connections to a Lua-based 3DS game. More is coming soon!!
 ## How to use
 ### On 3DS Hardware
 [Coming soon -- will update once I have had the chance to test on real hardware.]
