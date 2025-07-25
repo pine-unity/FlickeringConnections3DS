@@ -17,18 +17,44 @@ function love.load()
 
     player = {}
     player.customization_mode = 0
-    player.x = 0
-    player.y = 0
+    player.x = (love.graphics.getWidth() / 2) - (love.graphics.getWidth() / 12)
+    player.y = 120
     player.dy = 1
-    player.ay = -5
+    player.ay = -1
     player.vx = 1
-    player.vy = 0
+    player.vy = 1
+
+    jump = false
+
+    isJoy = false
+
+    joysticks = love.joystick.getJoysticks()
+    if #joysticks > 0 then
+        isJoy = true 
+     else
+        isJoy = false
+    end
 
 
 end
 
 function love.update(dt)
+    if jump then
+        player.vy = player.vy - 0.5
+        player.y = player.y - player.vy
+    end
+    
+    if player.y >= 120 then
+        player.vy = 0
+        jump = false
+        player.y = 120
+    end
 
+    if love.keyboard.isDown("left") then
+        player.x = player.x - player.vx
+    elseif love.keyboard.isDown("right") then
+        player.x = player.x + player.vx
+    end
 end
 
 function love.draw(screen)
@@ -69,6 +95,8 @@ function love.draw(screen)
             love.graphics.setColor(0.7, 0.5, 0.8)
             love.graphics.rectangle("fill", exitbutton.x, exitbutton.y, exitbutton.width, exitbutton.height)
 
+             love.graphics.print(tostring("x: " .. tostring(player.x) .. " y: " .. tostring(player.y) .. " vy: " .. tostring(player.vy)))
+
         end
 
     else
@@ -84,8 +112,6 @@ function love.draw(screen)
             love.graphics.rectangle("fill", 0, 0, width, height)
 
             -- load player
-            player.x = (width / 2) - (width / 12)
-            player.y = height / 2
             love.graphics.setColor(1, 1, 1)
             love.graphics.rectangle("fill", player.x, player.y, width / 6, width / 6)
         end
@@ -114,13 +140,22 @@ end
 
 
 function love.gamepadpressed(joystick, button)
-    if not joystick then
-        return
+
+    if isJoy and joystick then
+        if joystick:isGamepadDown("dpright") then
+            player.x = player.x + player.vx
+        elseif joystick:isGamepadDown("dpleft") then
+            player.x = player.x - player.vx
+        end
+    end
+end
+
+function love.keypressed(key)
+    if key == "space" then
+       player.y = player.y + 1
+       player.vy = player.vy + 10
+       jump = true
+       
     end
 
-    if joystick:isGamepadDown("dpright") then
-        player.x = player.x + player.vx
-    elseif joystick:isGamepadDown("dpleft") then
-        player.x = player.x - player.vx
-    end
 end
